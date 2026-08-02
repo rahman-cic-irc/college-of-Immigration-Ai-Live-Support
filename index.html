@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRC Support Ai Assistant </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Custom Scrollbar */
+        #chat-body::-webkit-scrollbar {
+            width: 5px;
+        }
+        #chat-body::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.5);
+            border-radius: 10px;
+        }
+        /* Neon Glow Animation */
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+        }
+        .neon-btn {
+            animation: pulse-border 2s infinite;
+        }
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white font-sans">
+    </div>
+    <div id="ai-chat-container" class="fixed bottom-6 right-6 z-[9999]">
+        
+        <button onclick="toggleChat()" class="neon-btn bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 transition-all border-2 border-blue-400">
+            <i class="fas fa-robot animate-bounce"></i>
+        </button>
+
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-[350px] md:w-[420px] glass-effect border border-blue-500/30 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.7)] overflow-hidden flex flex-col transition-all duration-300">
+            
+            <div class="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-800 p-6 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/30">
+                            <i class="fas fa-user-shield text-white text-lg"></i>
+                        </div>
+                        <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-slate-900 animate-pulse"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white text-sm tracking-wide leading-none">RCIC-CIC Support Assistant</h3>
+                        <span class="text-[10px] text-blue-200 uppercase tracking-widest font-semibold">Active Now</span>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-white/60 hover:text-white transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="chat-body" class="h-96 overflow-y-auto p-6 space-y-5 flex flex-col">
+                <div class="flex items-start gap-2">
+                    <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-[10px] border border-blue-400 shadow-lg shadow-blue-500/20">🤵</div>
+                    <div class="bg-blue-500/10 border border-blue-500/20 p-4 rounded-3xl rounded-tl-none text-blue-50 text-xs leading-relaxed max-w-[85%] shadow-sm">
+                     👋 Welcome to College Of Immigration,<br> <br>
+                     আমি Abdur Rahman CIC-IRC AI Assistant 😊, </br> <br>
+                     Assalamu Alaikum. Dear Sir/Madam, May I help you ?</br> <br>
+                     🇨🇦 Canada Visa,
+                     🇦🇺 Australia Visa,
+                     🇺🇸 USA Visa,
+                     🇬🇧 UK Visa, </br> <br>
+                     🇨🇦 An officer of the College Of Immigration and Citizenship Consultants RCIC, 🔰
+                </div>
+                </div>
+            </div>
+
+            <div class="p-5 bg-slate-900/80 border-t border-slate-800/50">
+                <div class="flex gap-2 bg-slate-800/80 rounded-[1.5rem] p-2 border border-slate-700 focus-within:border-blue-500/50 transition-all shadow-lg">
+                    <input type="text" id="ai-input" placeholder="এখানে লিখুন (যেমন: ফলোয়ার, আইডি...)" class="flex-1 bg-transparent border-none px-3 py-2 text-white outline-none text-xs">
+                    <button onclick="askAI()" class="bg-blue-600 text-white w-10 h-10 rounded-2xl hover:bg-blue-500 shadow-lg shadow-blue-900/40 flex items-center justify-center transition active:scale-90">
+                        <i class="fas fa-paper-plane text-xs"></i>
+                    </button>
+                </div>
+                <p class="text-[9px] text-center text-slate-500 mt-3 font-medium uppercase tracking-tighter">Powered by Cyber Security Expert Team</p>
+            </div>
+        </div>
+    </div>
+<script>
+    // চ্যাট উইন্ডো খোলা বা বন্ধ করা
+    function toggleChat() {
+        const win = document.getElementById('chat-window');
+        win.classList.toggle('hidden');
+        if(!win.classList.contains('hidden')) {
+            document.getElementById('ai-input').focus();
+        }
+    }
+
+    // 🤖 স্মার্ট ভিসা কিওয়ার্ড ডাটাবেস
+    const botData = [
+        {
+            keywords: ["canada", "কানাডা", "express entry", "pnp", "lmia", "study in canada"],
+            reply: "🇨🇦 <b>Canada Visa Services:</b><br><br>• Express Entry (FSW, CEC, FST)<br>• Provincial Nominee Program (PNP)<br>• Study Permit & Work Permit (LMIA)<br>• Visitor Visa & Citizenship Application<br><br>প্রসেসিং বা ফাইল মূল্যায়নের জন্য বিস্তারিত তথ্য দিয়ে ইনবক্স করুন।"
+        },
+        {
+            keywords: ["australia", "অস্ট্রেলিয়া", "500", "subclass", "482", "189", "190"],
+            reply: "🇦🇺 <b>Australia Visa Services:</b><br><br>• Student Visa (Subclass 500)<br>• Skill Shortage Work Visa (Subclass 482)<br>• Permanent Residency (Subclass 189, 190, 491)<br>• Tourist & Visitor Visa (Subclass 600)<br><br>জিএসটি (GST) গাইডলাইন ও ব্যাঙ্ক স্টেটমেন্ট সহায়তা প্রদান করা হয়।"
+        },
+        {
+            keywords: ["usa", "america", "আমেরিকা", "b1/b2", "f1", "f1 visa"],
+            reply: "🇺🇸 <b>USA Visa Services:</b><br><br>• Student Visa (F-1 Visa) & I-20 Guidance<br>• Visitor & Business Visa (B1/B2)<br>• Embassy Interview Preparation<br>• DS-160 Form Fill-up & Slot Booking"
+        },
+        {
+            keywords: ["uk", "united kingdom", "ইউকে", "লন্ডন", "cas"],
+            reply: "🇬🇧 <b>UK Visa Services:</b><br><br>• Student Route Visa (CAS Processing)<br>• Skilled Worker Visa & Sponsorship<br>• Visitor / Tourist Visa<br>• Dependant Visa Processing"
+        },
+        {
+            keywords: ["visa", "ভিসা", "কী কী ভিসা", "services", "সার্ভিস"],
+            reply: "আমাদের সার্ভিসসমূহ:<br><br>🇨🇦 Canada Visa Processing<br>🇦🇺 Australia Visa Guidance<br>🇺🇸 USA Student & Tourist Visa<br>🇬🇧 UK Higher Education & Work Visa<br><br>কোন দেশের ভিসা নিয়ে জানতে চান, দেশের নাম লিখুন।"
+        },
+        {
+            keywords: ["hi", "hello", "কেমন", "rahman", "রহমান", "admin", "এডমিন", "contact", "যোগাযোগ"],
+            reply: "👋 Assalamu Alaikum! আমি Abdur Rahman (RCIC Assistant)।<br><br>কানাডা, অস্ট্রেলিয়া, ইউএসএ ও ইউকে ভিসা সংক্রান্ত যেকোনো তথ্যের জন্য সরাসরি হোয়াটসঅ্যাপে যোগাযোগ করতে নিচের বাটনে ক্লিক করুন:<br><br><a href='https://wa.me/16722844386' target='_blank' class='inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-green-500 transition shadow-lg shadow-green-900/20'><i class='fab fa-whatsapp text-sm'></i> WhatsApp: +1 (672) 284-4386</a>"
+        }
+    ];
+
+    function askAI() {
+        const input = document.getElementById('ai-input');
+        const body = document.getElementById('chat-body');
+        const userText = input.value.trim();
+        const msg = userText.toLowerCase();
+        
+        if(!userText) return;
+
+        // ইউজারের মেসেজ UI-তে দেখানো
+        body.innerHTML += `
+            <div class="flex justify-end animate-fade-in">
+                <div class="bg-blue-600 text-white p-3.5 rounded-3xl rounded-tr-none text-xs max-w-[80%] shadow-lg shadow-blue-900/20 border border-blue-400/30">
+                    ${userText}
+                </div>
+            </div>`;
+        
+        input.value = "";
+
+        // বট উত্তর প্রসেস করা
+        setTimeout(() => {
+            let foundReply = "দুঃখিত, আমি ঠিক বুঝতে পারিনি। আপনি কি 🇨🇦 Canada, 🇦🇺 Australia, 🇺🇸 USA নাকি 🇬🇧 UK ভিসা সম্পর্কে জানতে চাচ্ছেন? সরাসরি তাই বলুন। 'Abdurrahman' লিখুন।";
+            
+            // কিওয়ার্ড চেক
+            for (let item of botData) {
+                let match = item.keywords.some(word => msg.includes(word));
+                if (match) {
+                    foundReply = item.reply;
+                    break;
+                }
+            }
+
+            // বটের উত্তর UI-তে দেখানো
+            body.innerHTML += `
+                <div class="flex items-start gap-2 animate-fade-in">
+                    <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-[10px] border border-blue-400">AI</div>
+                    <div class="bg-slate-800 border border-slate-700 p-4 rounded-3xl rounded-tl-none text-slate-200 text-xs max-w-[85%] shadow-xl">
+                        ${foundReply}
+                    </div>
+                </div>`;
+            
+            // অটো স্ক্রোল নিচে নামানো
+            body.scrollTop = body.scrollHeight;
+        }, 600);
+    }
+
+    // Enter key সাপোর্ট
+    document.getElementById('ai-input').addEventListener("keypress", (e) => {
+        if (e.key === "Enter") askAI();
+    });
+</script>
+</body>
+</html>
