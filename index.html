@@ -34,7 +34,59 @@
     </style>
 </head>
 <body class="bg-slate-950 text-white font-sans">
+    
+<!-- Hero Section -->
+<div class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-12 relative overflow-hidden">
+    
+    <!-- Hero Header -->
+    <div class="max-w-3xl space-y-6 z-10 mt-10">
+        <span class="bg-blue-500/10 border border-blue-500/30 text-blue-400 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase">
+            🎓 College Of Immigration & Citizenship
+        </span>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+            আপনার বিদেশে উচ্চশিক্ষা ও ইমিগ্রেশনের স্বপ্ন পূরণ করুন সহজ উপায়ে
+        </h1>
+        <p class="text-slate-400 text-sm md:text-base max-w-xl mx-auto">
+            Canada, Australia, USA এবং UK ভিসার বিশ্বস্ত গাইডলাইন ও প্রফেশনাল প্রসেসিং সাপোর্ট পেতে এখনই ফ্রি অ্যাসেসমেন্ট করুন।
+        </p>
+        
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 pt-4">
+            <button onclick="toggleChat()" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-2xl transition shadow-lg shadow-blue-600/30 text-sm flex items-center gap-2">
+                <i class="fas fa-comments"></i> স্টার্ট চ্যাট অ্যাসিস্ট্যান্ট
+            </button>
+            <a href="https://wa.me/16722844386" target="_blank" class="bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white font-semibold px-6 py-3 rounded-2xl transition text-sm flex items-center gap-2">
+                <i class="fab fa-whatsapp text-green-400"></i> হোয়াটসঅ্যাপ কনসালটেশন
+            </a>
+        </div>
     </div>
+
+    <!-- Country Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl w-full mt-12 z-10">
+        <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl text-center hover:border-blue-500/50 transition">
+            <div class="text-3xl mb-2">🇨🇦</div>
+            <h4 class="font-bold text-sm">Canada Visa</h4>
+            <p class="text-[10px] text-slate-400 mt-1">Study, PR & Visitor</p>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl text-center hover:border-blue-500/50 transition">
+            <div class="text-3xl mb-2">🇦🇺</div>
+            <h4 class="font-bold text-sm">Australia Visa</h4>
+            <p class="text-[10px] text-slate-400 mt-1">Subclass 500 & 482</p>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl text-center hover:border-blue-500/50 transition">
+            <div class="text-3xl mb-2">🇺🇸</div>
+            <h4 class="font-bold text-sm">USA Visa</h4>
+            <p class="text-[10px] text-slate-400 mt-1">F1 Student & B1/B2</p>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl text-center hover:border-blue-500/50 transition">
+            <div class="text-3xl mb-2">🇬🇧</div>
+            <h4 class="font-bold text-sm">UK Visa</h4>
+            <p class="text-[10px] text-slate-400 mt-1">Student Route & Work</p>
+        </div>
+    </div>
+
+</div>
+    
     <div id="ai-chat-container" class="fixed bottom-6 right-6 z-[9999]">
         
         <button onclick="toggleChat()" class="neon-btn bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 transition-all border-2 border-blue-400">
